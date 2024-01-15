@@ -81,3 +81,15 @@
 # c like / ㅋㅋㅋㅋㅋㅋㅋㅋㅋ 오랜만이네
 # print('밑은 %d, 지수는 %d, 결과 값은 %d' % (base_number, exponent_number, pow(base_number, exponent_number)))
 
+# divmod 사용해보기
+# 일단 기본만
+# first_number = int(input("First number: "))
+# second_number = int(input("Second number: "))
+
+# quotient = first_number // second_number
+# remainder = first_number % second_number
+# print(f'목은 {quotient} 나머지는 {remainder}')
+
+# divmod 함수 사용하기 // 연산기호가 미세하게 더 빠르다고 하다. 함수를 불러와서 그럼. 근데 그리 큰 차이는 X
+# print(f'목은 {divmod(first_number, second_number)[0]} 나머지는 {divmod(first_number, second_number)[1]}')
+# divmod가 (몫, 나머지)이기 떄문에 []를 이용해서 방을 지정해준다
