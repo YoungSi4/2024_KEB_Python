@@ -6,8 +6,7 @@
 # 깃허브에 올리세용
 
 # While을 사용하는 경우 # Ctrl + / 로 활성화
-# power = 1
-# while power == 1:
+# while True:
 #     menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fehrenheit  3) Quit Program: ")
 #
 #     if menu == '1':
