@@ -55,14 +55,29 @@
 # print(b)
 # >> [99, 4, 6] ** 참조의 개념이기 떄문이다!!
 
-#숫자형 자료
+# 숫자형 자료
 # a = 1,000,000
 # print(type(a)) # >> <class 'tuple'>
 # 튜플로 인식한다. 따라서 언더바를 쓰자
-
 # a = 1_000_000
 # print(type(a)) # >> <class 'int'>
 
-base_number = int(input('input base number: '))
-exponent_number = int(input('input exponent number: '))
-print(f'밑은 {base_number}, 지수는 {exponent_number}, 결과값은 {base_number ** exponent_number}')
+# 연산과 출력
+# base_number = int(input('input base number: '))
+# exponent_number = int(input('input exponent number: '))
+# int 변환을 안 해주면, input 함수는 기본적으로 str이기 때문에 **로 계산할 수 없다
+
+# pow 함수로 해보기
+# print(f'밑은 {base_number}, 지수는 {exponent_number}, 결과값은 {pow(base_number, exponent_number)}')
+
+# 출력
+# f-stirng fuction은 파이썬 3.6부터 지원한다. 간편하게 print에서 출력 가능하다. 가장 최신.
+# print(f'밑은 {base_number}, 지수는 {exponent_number}, 결과값은 {base_number ** exponent_number}')
+
+# format function이 이전에 같은 기능을 수행했다.
+# print('밑은 {0}, 지수는 {1}, 결과 값은 {2}'.format(base_number, exponent_number, pow(base_number, exponent_number)))
+# 이전 버전의 불편한 함수이긴 하지만, 호환성을 생각하면 계속 사용하게 된다.
+
+# c like / ㅋㅋㅋㅋㅋㅋㅋㅋㅋ 오랜만이네
+# print('밑은 %d, 지수는 %d, 결과 값은 %d' % (base_number, exponent_number, pow(base_number, exponent_number)))
+
