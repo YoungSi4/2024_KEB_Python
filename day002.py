@@ -151,16 +151,35 @@
 
 # 모음 자음 탐색하기
 
-letter = input('put any alpabet letter you want: ')
+# letter = input('put any alpabet letter you want: ')
 
 # 방법 1, set 사용
-vowels = {'a', 'e', 'i', 'o', 'u'} # 이건 key 형식의 시퀀스 자료형
+# vowels = {'a', 'e', 'i', 'o', 'u'} # 이건 key 형식의 시퀀스 자료형
 
 # 방법2, str 사용
 # vowels = 'aeiou'
 
-if letter in vowels: # in 구문을 이용해서 파이썬다운 코드를 짤 수 있다.
-    print(f'{letter} is a vowel')
-else:
-    print(f'{letter} is a consonant')
+# if letter in vowels: # in 구문을 이용해서 파이썬다운 코드를 짤 수 있다.
+#     print(f'{letter} is a vowel')
+# else:
+#     print(f'{letter} is a consonant')
 
+
+# 과제
+# 반복문을 이용해서 섭씨 화씨 전환 프로그램 3번 입력 전까지 계속 작동되도록 만들기
+# 방법 1. For 구문
+# 방법 2. While 구문
+# 들여쓰기를 주의할 것
+# 깃허브에 올리세용
+
+# 배운 거. 리스트, 튜플, str, int, float, literal의 개념, 숫자형 opertaion(연산)
+# 변수, if문, 'in'을 이용한, mutable과 immutable의 개념
+
+# Q: 리스트와 셋의 차이. 리스트는 중복값 가능, 셋은 중복값 불가능 (키는 마지막 값만 저장하기 때문)
+list = [1, 3, 3, 2, 4] # 리스트: 대괄호
+set = {1, 3, 3, 2, 4} # 셋: 중괄호 : 중복값이 나오지 않는다.
+print(list, set)
+
+
+# 다음 시간: 남은 if, 문자열 text string, loop 반복문
+# 시험은 모듈, 패키지까지 파이썬 기본기로 다 낼 것임
