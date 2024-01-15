@@ -93,3 +93,14 @@
 # divmod 함수 사용하기 // 연산기호가 미세하게 더 빠르다고 하다. 함수를 불러와서 그럼. 근데 그리 큰 차이는 X
 # print(f'목은 {divmod(first_number, second_number)[0]} 나머지는 {divmod(first_number, second_number)[1]}')
 # divmod가 (몫, 나머지)이기 떄문에 []를 이용해서 방을 지정해준다
+
+# 진법 써보기
+# dec = 65
+# octal = 0o101
+# hecadecimal = 0x41
+# binary = 0b01000001
+# print(dec, octal, hecadecimal, binary)
+# print(chr(dec), chr(octal), chr(hecadecimal), chr(binary))
+# print(ord('B'), ord("Z"), ord('a'), ord('2')) # 66, 90, 97, 50
+
+
