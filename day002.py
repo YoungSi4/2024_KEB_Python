@@ -103,4 +103,9 @@
 # print(chr(dec), chr(octal), chr(hecadecimal), chr(binary))
 # print(ord('B'), ord("Z"), ord('a'), ord('2')) # 66, 90, 97, 50
 
+# (화씨°F − 32) × 5/9 = 0°C
+fahrenheit = float(input("화씨 온도: "))
+print(f'화씨온도: {fahrenheit}F, 섭씨: {(fahrenheit - 32) * 5 / 9}C')
 
+# 소수점 넷째 자리까지만 나오도록 처리
+print(f'화씨온도: {fahrenheit}F, 섭씨: {((fahrenheit - 32) * 5 / 9):.4f}C')
