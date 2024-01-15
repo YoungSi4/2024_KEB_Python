@@ -55,6 +55,8 @@
 # print(b)
 # >> [99, 4, 6] ** 참조의 개념이기 떄문이다!!
 
+# ----------------------------------------------------------------------------
+
 # 숫자형 자료
 # a = 1,000,000
 # print(type(a)) # >> <class 'tuple'>
@@ -94,6 +96,8 @@
 # print(f'목은 {divmod(first_number, second_number)[0]} 나머지는 {divmod(first_number, second_number)[1]}')
 # divmod가 (몫, 나머지)이기 떄문에 []를 이용해서 방을 지정해준다
 
+# ----------------------------------------------------------------------------
+
 # 진법 써보기
 # dec = 65
 # octal = 0o101
@@ -103,9 +107,60 @@
 # print(chr(dec), chr(octal), chr(hecadecimal), chr(binary))
 # print(ord('B'), ord("Z"), ord('a'), ord('2')) # 66, 90, 97, 50
 
-# (화씨°F − 32) × 5/9 = 0°C
-fahrenheit = float(input("화씨 온도: "))
-print(f'화씨온도: {fahrenheit}F, 섭씨: {(fahrenheit - 32) * 5 / 9}C')
+# ----------------------------------------------------------------------------
 
-# 소수점 넷째 자리까지만 나오도록 처리
-print(f'화씨온도: {fahrenheit}F, 섭씨: {((fahrenheit - 32) * 5 / 9):.4f}C')
+# # (화씨°F − 32) × 5/9 = 0°C
+#fahrenheit = float(input("화씨 온도: "))
+#print(f'화씨온도: {fahrenheit}F, 섭씨: {(fahrenheit - 32) * 5 / 9}C')
+
+# ----------------------------------------------------------------------------
+
+# if문 활용 > 반복문 활용 > 모듈 > 클래스 객체
+
+# menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fehrenheit  3) Quit Program: ")
+#
+# if menu == '1':
+#     fahrenheit = float(input('Input Fahenheit : '))
+#     print(f'화씨온도: {fahrenheit}F, 섭씨: {((fahrenheit - 32) * 5 / 9):.4f}C')
+# elif menu == '2':
+#     celsius = float(input('Input Celsius: '))
+#     print(f'Celsius: {celsius}C, Fahrenheit: {((celsius * 9/5) + 32):.4f}F')
+# else:
+#     print('Terminate Program. Goodnight.')
+
+# ----------------------------------------------------------------------------
+
+# # 소수점 넷째 자리까지만 나오도록 처리
+# print(f'화씨온도: {fahrenheit}F, 섭씨: {((fahrenheit - 32) * 5 / 9):.4f}C')
+
+# 진수 변환 방법 추가
+# print(int('11', 16))
+# print(int('1A', 16))
+
+# ----------------------------------------------------------------------------
+
+# 값의 존재 여부
+# temp = []
+# if temp:
+#     print("원소가 존재")
+# else:
+#     print("비어있다") # >> 비어있다 출력
+#                      # temp[0]이면 >> 원소가 존재
+
+# ----------------------------------------------------------------------------
+
+# 모음 자음 탐색하기
+
+letter = input('put any alpabet letter you want: ')
+
+# 방법 1, set 사용
+vowels = {'a', 'e', 'i', 'o', 'u'} # 이건 key 형식의 시퀀스 자료형
+
+# 방법2, str 사용
+# vowels = 'aeiou'
+
+if letter in vowels: # in 구문을 이용해서 파이썬다운 코드를 짤 수 있다.
+    print(f'{letter} is a vowel')
+else:
+    print(f'{letter} is a consonant')
+
