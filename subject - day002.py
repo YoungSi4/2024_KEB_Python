@@ -5,7 +5,7 @@
 # 들여쓰기를 주의할 것
 # 깃허브에 올리세용
 
-# While을 사용하는 경우
+# While을 사용하는 경우 # Ctrl + / 로 활성화
 # power = 1
 # while power == 1:
 #     menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fehrenheit  3) Quit Program: ")
@@ -16,7 +16,7 @@
 #     elif menu == '2':
 #         celsius = float(input('Input Celsius: '))
 #         print(f'Celsius: {celsius}C, Fahrenheit: {((celsius * 9/5) + 32):.4f}F')
-#     elif menu == '3'
+#     elif menu == '3':
 #         print('Terminate Program. Goodnight.')
 #         break
 #     else:
