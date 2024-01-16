@@ -170,3 +170,21 @@
 # for k in range(len(univ)):
 #     print(univ[k], end=' ')
 
+# 아까 그 소수 탐색 프로그램
+number = int(input("Input Number : "))
+is_prime = True # int > bool
+
+if number < 2: # 1 이하의 소수가 아닌 모든 숫자 처리
+    print(f"{number} is not prime number")
+else:
+    for i in range(2, number): #for를 이용해 더 줄였다
+        if number % i == 0:
+            is_prime = False # 연산 제거
+            break
+        # print(i, end=' ')
+
+    # print('\n')
+    if is_prime: # remove ==
+        print(f"{number} is prime number")
+    else:
+        print(f"{number} is not prime number")
