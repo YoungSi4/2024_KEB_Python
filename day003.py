@@ -170,21 +170,54 @@
 # for k in range(len(univ)):
 #     print(univ[k], end=' ')
 
-# 아까 그 소수 탐색 프로그램
-number = int(input("Input Number : "))
-is_prime = True # int > bool
+# 아까 그 소수 탐색 프로그램 v6.0 for를 사용해서 더 간략하게
+# number = int(input("Input Number : "))
+# is_prime = True # int > bool
+#
+# if number < 2: # 1 이하의 소수가 아닌 모든 숫자 처리
+#     print(f"{number} is not prime number")
+# else:
+#     for i in range(2, number): #for를 이용해 더 줄였다
+#         if number % i == 0:
+#             is_prime = False # 연산 제거
+#             break
+#         # print(i, end=' ')
+#
+#     # print('\n')
+#     if is_prime: # remove ==
+#         print(f"{number} is prime number")
+#     else:
+#         print(f"{number} is not prime number")
 
-if number < 2: # 1 이하의 소수가 아닌 모든 숫자 처리
-    print(f"{number} is not prime number")
-else:
-    for i in range(2, number): #for를 이용해 더 줄였다
-        if number % i == 0:
-            is_prime = False # 연산 제거
-            break
-        # print(i, end=' ')
+# range 자체는 generator이지 출력을 위한 그런 게 아님
+# print(range(3, 9)) # 출력이 이상하게 된다
+# print(list(range(3, 9)))
 
-    # print('\n')
-    if is_prime: # remove ==
-        print(f"{number} is prime number")
+# range로 감소하는 출력
+# for x in range(2, -1, -1):
+# 	print(x)
+
+# 죽지도 않고 돌아온 소수 프로그램 v7.0
+# 2개 입력 받고 그 사이의 소수를 출력하는 프로그램
+numbers = input("Input First Second Number : ").split()  #str로 받음 > .split()으로 리스트로 바꿈**
+n1 = int(numbers[0])
+n2 = int(numbers[1])
+temp = 0
+
+# if n1 > n2:
+#     temp = n1
+#     n1 = n2
+#     n2 = temp
+
+for number in range(n1, n2+1):
+    is_prime = True # int > bool
+
+    if number < 2:
+        pass # 그냥 넘어가는 함수. 자리는 차지하는데 아무것도 하지 않는 명령어. 비우면 오류 생길 때 씀.
     else:
-        print(f"{number} is not prime number")
+        for i in range(2, number):
+            if number % i == 0:
+                is_prime = False
+                break # 현재 for만 탈출
+
+        if is_prime: print(number, end=' ')
