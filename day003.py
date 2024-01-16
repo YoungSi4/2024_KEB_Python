@@ -197,20 +197,17 @@
 # for x in range(2, -1, -1):
 # 	print(x)
 
-# 죽지도 않고 돌아온 소수 프로그램 v7.0
+# 죽지도 않고 돌아온 소수 프로그램 v8.0
 # 2개 입력 받고 그 사이의 소수를 출력하는 프로그램
 numbers = input("Input First Second Number : ").split()  #str로 받음 > .split()으로 리스트로 바꿈**
 n1 = int(numbers[0])
 n2 = int(numbers[1])
-temp = 0
 
-# if n1 > n2:
-#     temp = n1
-#     n1 = n2
-#     n2 = temp
+if n1 > n2: # 큰 수가 먼저 입력되는 경우를 처리해줌
+    n1, n2 = n2, n1 # ㅅㅂ 파이썬은 이게 되네, 튜플 패킹 언패킹을 활용.
 
 for number in range(n1, n2+1):
-    is_prime = True # int > bool
+    is_prime = True # 계속 True로 리셋해줘야 False 일 때 소수를 출력한 후 다시 정상으로 돌아온다.
 
     if number < 2:
         pass # 그냥 넘어가는 함수. 자리는 차지하는데 아무것도 하지 않는 명령어. 비우면 오류 생길 때 씀.
