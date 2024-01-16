@@ -39,7 +39,7 @@
 # >> True
 # print(isinstance(3.14, float))
 # >> True
-#print(isinstance("아", float))
+# print(isinstance("아", float))
 # >> False
 # 궁금한 것. 노션에 적어둠.
 
