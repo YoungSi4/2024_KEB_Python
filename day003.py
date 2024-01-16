@@ -18,7 +18,7 @@
 #
 
 # 5장 문자열 Text Strings
-university = 'inha\nuniversity'
+# university = 'inha\nuniversity'
 # print(university)
 
 #문자열 결합
@@ -32,3 +32,21 @@ university = 'inha\nuniversity'
 # print(university[0:len(university)])
 # print(university[:16])
 # print(university[::2])
+
+# split()
+# course = '2024 KEB bootcamp'
+# print(course)
+# list_course = course.split('B')
+# print(list_course)
+
+# 중요!!!
+# numbers = input("FirstNumber SecondNumber: ").split()
+# print(numbers[0] + numbers[1]) # 문자열 합성만 된다 concatenation
+# print(int(numbers[0]) + int(numbers[1]))
+
+# join()
+subjects = ["python", "cpp", "database"]
+subjects_string = " ".join(subjects)
+print(subjects_string)
+
+
