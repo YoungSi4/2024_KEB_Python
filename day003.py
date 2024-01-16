@@ -23,7 +23,7 @@
 # university = 'inha\nuniversity'
 # print(university)
 
-#문자열 결합
+# 문자열 결합
 # number1 = input("First number: ")
 # number2 = input("Second number: ")
 # print(number1*5 + number2)
@@ -199,22 +199,28 @@
 
 # 죽지도 않고 돌아온 소수 프로그램 v8.0
 # 2개 입력 받고 그 사이의 소수를 출력하는 프로그램
-numbers = input("Input First Second Number : ").split()  #str로 받음 > .split()으로 리스트로 바꿈**
-n1 = int(numbers[0])
-n2 = int(numbers[1])
+# numbers = input("Input First Second Number : ").split()  #str로 받음 > .split()으로 리스트로 바꿈**
+# n1 = int(numbers[0])
+# n2 = int(numbers[1])
+#
+# if n1 > n2: # 큰 수가 먼저 입력되는 경우를 처리해줌
+#     n1, n2 = n2, n1 # ㅅㅂ 파이썬은 이게 되네, 튜플 패킹 언패킹을 활용.
+#
+# for number in range(n1, n2+1):
+#     is_prime = True # 계속 True로 리셋해줘야 False 일 때 소수를 출력한 후 다시 정상으로 돌아온다.
+#
+#     if number < 2:
+#         pass # 그냥 넘어가는 함수. 자리는 차지하는데 아무것도 하지 않는 명령어. 비우면 오류 생길 때 씀.
+#         # 대신 continue를 사용할 수 있다.
+#     else:
+#         for i in range(2, number):
+#             if number % i == 0:
+#                 is_prime = False
+#                 break # 현재 for만 탈출
+#
+#         if is_prime: print(number, end=' ')
 
-if n1 > n2: # 큰 수가 먼저 입력되는 경우를 처리해줌
-    n1, n2 = n2, n1 # ㅅㅂ 파이썬은 이게 되네, 튜플 패킹 언패킹을 활용.
 
-for number in range(n1, n2+1):
-    is_prime = True # 계속 True로 리셋해줘야 False 일 때 소수를 출력한 후 다시 정상으로 돌아온다.
-
-    if number < 2:
-        pass # 그냥 넘어가는 함수. 자리는 차지하는데 아무것도 하지 않는 명령어. 비우면 오류 생길 때 씀.
-    else:
-        for i in range(2, number):
-            if number % i == 0:
-                is_prime = False
-                break # 현재 for만 탈출
-
-        if is_prime: print(number, end=' ')
+# 과제! 2024 - 01 -16 화
+# 1. 어제 했던 과제에서 3번 메뉴를 소수 판정 프로그램 숫자 하나 받아서 4번 메뉴는 구간 소수 출력 프로그램 5번을 종료
+# 2. 교재 143p 연습문제 6.5번 - 1, 2, 3번 작성해서 깃허브에 올릴 것
