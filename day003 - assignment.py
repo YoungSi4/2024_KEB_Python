@@ -65,10 +65,31 @@
 # Assignment No.2 : 143p practice #6.5 - 1, 2, 3.
 # 1: for 문으로 리스트 [3, 2, 1, 0] 을 출력하기
 
+# Solution 1 > 길이를 정하고 시작한 거라 별로 마음에 안 든다.
+
+# list = [0, 0, 0, 0]
+# index = 0
+# for number in range(3, -1, -1):
+#     list[index] = number
+#     index += 1
+# print(list)
+
+# Solution 2
+
 # list = []
 # for number in range(3, -1, -1):
 #     list.append(number)
 # print(list)
+
+# Solution 3
+
+# print([i for i in range(3, -1, -1)])
+
+# Solution 4
+
+# for i in [list(range(3, -1, -1))]:
+#     print(i)
+
 
 # ---------------------------------------------------------------------------------------------------------------
 
