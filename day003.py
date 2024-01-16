@@ -128,20 +128,20 @@
 # subjects = {'python': 'kim', 'cpp': "song", 'datastructure' : 'kim', 'database' : 'kang'}
 # print("{0[cpp]} {0[database]}".format(subjects))
 
-# 소수를 찾는 프로그램. prime number. while 활용 v3.0, 탐색 횟수 크게 감소!
+# 소수를 찾는 프로그램. prime number. while 활용 v4.0, 효율 증가
 number = int(input("Input Number : "))
-cnt = 0
+is_prime = True # int > bool
 i = 2
 
 while i < number:
     if number % i == 0:
-        cnt += 1
+        is_prime = False # 연산 제거
         break
-    print(i, end=' ')
+    # print(i, end=' ')
     i += 1
 
-print('\n')
-if cnt == 0:
+# print('\n')
+if is_prime: # remove ==
     print(f"{number} is prime number")
 else:
     print(f"{number} is not prime number")
