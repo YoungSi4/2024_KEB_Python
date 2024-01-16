@@ -129,24 +129,44 @@
 # print("{0[cpp]} {0[database]}".format(subjects))
 
 # 소수를 찾는 프로그램. prime number. while 활용 v5.0, 1 같은 케이스 제거
-number = int(input("Input Number : "))
-is_prime = True # int > bool
+# 계속 진화할 예정
+# number = int(input("Input Number : "))
+# is_prime = True # int > bool
+#
+# if number < 2: # 1 이하의 소수가 아닌 모든 숫자 처리
+#     print(f"{number} is not prime number")
+# else:
+#     i = 2
+#
+#     while i < number:
+#         if number % i == 0:
+#             is_prime = False # 연산 제거
+#             break
+#         # print(i, end=' ')
+#         i += 1
+#
+#     # print('\n')
+#     if is_prime: # remove ==
+#         print(f"{number} is prime number")
+#     else:
+#         print(f"{number} is not prime number")
 
-if number < 2: # 1 이하의 소수가 아닌 모든 숫자 처리
-    print(f"{number} is not prime number")
-else:
-    i = 2
 
-    while i < number:
-        if number % i == 0:
-            is_prime = False # 연산 제거
-            break
-        # print(i, end=' ')
-        i += 1
+# 책의 예제를 range를 활용해서
+# univ = "inha"
+# i = 0
+# while i < len(univ): # side effect가 발생할 확률이 높다
+#     print(univ[i], end=' ') # 줄바꿈 대신 띄어쓰기로 적어준다
+#     i += 1
+# print()
+#
+# for letter in univ: # 훨씬 간단하고 안전한 코드이다.
+#     print(letter, end=' ') # 대신 특정 구간만 슬라이스 하고 싶을 때 쓰기 어렵다
+#     # univ에서 inha를 다 꺼낼 때까지 작동하기 때문이다. 이럴 때 while을 사용
+#
+# print()
 
-    # print('\n')
-    if is_prime: # remove ==
-        print(f"{number} is prime number")
-    else:
-        print(f"{number} is not prime number")
+# for k in range(0, len(univ), 1): # range(시작, 종료, 구간 크기)
+# for k in range(len(univ)):
+#     print(univ[k], end=' ')
 
