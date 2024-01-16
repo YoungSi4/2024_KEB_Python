@@ -17,6 +17,8 @@
 #         print('Error: You put in a wrong number.')
 #
 
+# -------------------------------------------------------------------------------
+
 # 5장 문자열 Text Strings
 # university = 'inha\nuniversity'
 # print(university)
@@ -45,8 +47,99 @@
 # print(int(numbers[0]) + int(numbers[1]))
 
 # join()
-subjects = ["python", "cpp", "database"]
-subjects_string = " ".join(subjects)
-print(subjects_string)
+# subjects = ["python", "cpp", "database"]
+# subjects_string = " ".join(subjects)
+# print(subjects_string)
 
+# replace()
+# course = '2024 KEB bootcamp'
+# print(course)
+# course = course.replace('KEB', 'Inha')
+# print(course)
+
+# 교체 횟수 정해보기
+# course = 'KEB 2024 KEB bootcamp KEB'
+# print(course)
+# course = course.replace('KEB', 'Inha', 1)
+# print(course)
+# course = course.replace('KEB', 'Inha', 1)
+# print(course)
+
+# strip()
+# course = 'KEB 2024 KEB !! bootcamp KEB...*!#'
+# print(course)
+# print(course.strip())
+# print(course.strip("!#.*"))
+
+# -------------------------------------------------------------------------------
+
+# 탐색
+# course = 'KEB 2024 KEB !! bootcamp KEB...*!#'
+# print(course.find("KEB"))
+# print(course.rfind("KEB"))
+# print(course.find("Inha"))
+# print(course[25])
+# print(course.index("KEB"))
+# print(course.rindex("KEB"))
+# print(course.index("Inha")) # ValueError: substring not found
+
+# 종합 활용 예제: find 사용
+# subjects = "python cpp database linux"
+# subject = input("수강신청과목 입력: ")
+#
+# if subjects.find(subject) != -1:
+#     print(f"해당 과목이 존재합니다. 위치는 {subjects.find(subject)}번 인덱스입니다.")
+# else:
+#     print('해당 과목이 없습니다.')
+
+# index를 쓸 경우의 예외처리 방법
+# subjects = "python cpp database linux"
+# subject = input("수강신청과목 입력: ")
+#
+# if subjects.index(subject) != -1: # 없으면 value 예외를 반환한다.
+#     print(f"해당 과목이 존재합니다. 위치는 {subjects.find(subject)}번 인덱스입니다.")
+# else:
+#     print('해당 과목이 없습니다.')
+
+# -------------------------------------------------------------------------------
+# 고쳐보자. 예외처리의 프리뷰
+
+# subjects = "python cpp database linux"
+# subject = input("수강신청과목 입력: ")
+#
+# try:
+#     print(f"해당 과목이 존재합니다. 위치는 {subjects.find(subject)}번 인덱스입니다.")
+#
+# except ValueError:
+#     print('해당 과목이 없습니다.')
+
+# .isalnum
+# subjects = "python cpp database linux 123" # Fasle
+# print(subjects.isalnum())
+# subjects = "pythoncppdatabaselinux123" # True
+# print(subjects.isalnum())
+
+# Case 서식 수정
+# Aligment 정렬
+# 출력방식
+# print('%e' % 0.7045)
+
+# dictionary 를 활용한 .format() 스트링으로 출력
+# subjects = {'python': 'kim', 'cpp': "song", 'datastructure' : 'kim', 'database' : 'kang'}
+# print("{0[cpp]} {0[database]}".format(subjects))
+
+# 소수를 찾는 프로그램. prime number. while 활용
+number = int(input("Input Number : "))
+cnt = 0
+i = 1
+
+while i <= number:
+    if number % i == 0:
+        cnt += 1
+    i += 1
+
+if cnt == 2:
+    print(f"{number} is prime number")
+else:
+    print(f"{number} is not prime number")
 
