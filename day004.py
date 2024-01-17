@@ -176,3 +176,32 @@
 # print(all_birds[0])
 # print(all_birds[0][1])
 
+# # Dictionary
+
+# 1.
+# sugang = dict(python="kim", db='kang', cpp='sung')
+# print(sugang)
+# sugang['datastructure'] = 'kim' # add
+# print(sugang)
+# sugang['datastructure'] = 'park' # overwrite
+#
+# print(sugang['db'])
+# print(sugang.get('db'))
+# print(sugang.get('opensource', 'not exist')) # 해당 키가 없으면 default로는 None을 리턴한다
+
+# 2.
+# sugang = dict(python="kim", db='kang', cpp='sung')
+# for subject, professor in sugang.items():
+#     print(f'{subject} 과목 담당교수는 {professor}입니다.') # 단 이 순서는 보장된 게 아니다.
+#
+# for k in sugang.keys():
+#     print(k)
+# for k in sugang:
+#     print(k)    # 둘이 동일한 출력. default가 키 출력이라고 보면 됨
+#
+# for v in sugang.values():
+#     print(v)
+
+# 3. 주류 종류에 따라 안주 추전하는 프로그램 : 딕셔너리가 제일 편해보임.
+
+
