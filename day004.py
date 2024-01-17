@@ -97,6 +97,7 @@
 # print(subjects)
 
 # # sort, sorted
+# 1.
 # subjects = ['java', 'python','cpp']
 # print(subjects)
 # subjects.sort()
@@ -104,14 +105,74 @@
 # subjects.sort(reverse=True)
 # print(subjects)
 
-subjects = ['java', 'python', '5', 'cpp', '4', '9', '데이터베이스']
+# 2.
+# subjects = ['java', 'python', 5, 'cpp', 4, 9, '데이터베이스']
 # print(subjects)
 # subjects.sort()
 # print(subjects)
 # subjects.sort(reverse=True)
 # print(subjects)
 
-sorted(subjects)
-print(subjects)
-subjects = sorted(subjects)
-print(subjects)
+# 3.
+# subjects = ['java', 'python', '5', 'cpp', '4', '9', '데이터베이스']
+# sorted(subjects)
+# print(subjects)
+# subjects = sorted(subjects)
+# print(subjects)
+
+
+# # Copy
+# subjects = ["a", "b", "c"]
+# subjects = ["a", ["b", "c"], "d"]
+# a = subjects
+# b = subjects.copy()
+# c = list(subjects)
+# d = subjects[:]
+# print(subjects, a, b, c, d)
+# subjects[1][1] = 'x'
+# print(subjects, a, b, c, d)
+
+# # deep copy
+# import copy
+# subjects = ["a", ["b", "c"], "d"]
+# a = subjects
+# b = subjects.copy()
+# c = list(subjects)
+# d = subjects[:]
+# e = copy.deepcopy(a)
+# print(subjects, a, b, c, d, e)
+# subjects[1][1] = 'x'
+# print(subjects, a, b, c, d, e)
+
+# # List Comphrehension
+# square of 1 to 5
+# squares = list()
+# squares.append(1*1)
+# squares.append(2*2)
+# squares.append(3*3)
+# squares.append(4*4)
+# squares.append(5*5)
+# print(squares) # 최악
+#
+# squares = list()
+# for i in range(1, 6):
+#     squares.append(i*i)
+# print(squares)
+
+# # 자 잘봐
+# squares = [i*i for i in range(1, 6)] # 정말 간결하고 강력하다. 축약식 표현
+# print(squares)
+#
+# even_squares = [i*i for i in range(1, 6)  if i % 2 == 0]
+# print(even_squares)
+
+# # Lists of Lists 예제
+# small_birds = ['humingbird', 'finch']
+# extinct_birds = ['dodo', 'passenger pigeon', 'Norwegian Blue']
+# carol_birds = [3, 'French hens', '2', 'turtledoves']
+# all_birds = [small_birds, extinct_birds, 'macaw', carol_birds]
+#
+# print(all_birds)
+# print(all_birds[0])
+# print(all_birds[0][1])
+
