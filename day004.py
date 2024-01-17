@@ -202,6 +202,45 @@
 # for v in sugang.values():
 #     print(v)
 
-# 3. 주류 종류에 따라 안주 추전하는 프로그램 : 딕셔너리가 제일 편해보임.
+# 3. 주류 종류에 따라 안주 추전하는프로그램 : 딕셔너리가 제일 편해보임.
+
+import random
+drinks_foods = {"위스키": "초콜릿", "와인": "치즈", "소주": "삼겹살", "고량주": "양꼬치"}
+# 입력을 받는 게 드링크
+
+# del drinks_foods["위스키"]
+# drinks_foods["사케"] = "연어회"
+# japan_drinks_foods = {"사케": "연어회", "위스키": "낙곱새",} # 중복키 "위스키"
+# drinks_foods.update(japan_drinks_foods)
+drinks_foods_keys = list(drinks_foods)
+print(drinks_foods)
+# print(drinks_foods.pop("고량주"))
+print(drinks_foods_keys.remove("위스키"))
+print(drinks_foods)
 
 
+while True:
+    menu = input(f'다음 주류 중에 고르세요 \n1) {drinks_foods_keys[0]} 2) {drinks_foods_keys[1]} 3) {drinks_foods_keys[2]} 4) {drinks_foods_keys[3]} 5) {drinks_foods_keys[4]} 6) 랜덤 7) 종료 : ')
+    #value는 당장 안 쓰고 키값만 필요하니 list로 가져와보자
+    if menu == '1': # 1이 문자열임에 주의하자
+         print(f'{drinks_foods_keys[0]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[0]]}\n')
+    elif menu == '2':
+         print(f'{drinks_foods_keys[1]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[1]]}\n')
+    elif menu == '3':
+         print(f'{drinks_foods_keys[2]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[2]]}\n')
+    elif menu == '4':
+         print(f'{drinks_foods_keys[3]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[3]]}\n')
+    elif menu == '5':
+         print(f'{drinks_foods_keys[4]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[4]]}\n')
+    elif menu == '6':
+         random_drink = random.choice(drinks_foods_keys)
+         print(f'오늘은 {random.choice(drinks_foods_keys)}!')
+         print(f'{random_drink}에 어울리는 안주는 {random_drink}\n')
+    elif menu == '7':
+         print(f'다음에 또 오세요')
+         break
+
+
+# 24 01 17 수 Day4 과제
+# set은 설명은 못했으나 key와 value 같은 dict라고 보면 된다.
+# 책 예제 205p 8.1 ~ 8.10 / 딕셔너리 컴프리헨션은 예습해서 하자.
