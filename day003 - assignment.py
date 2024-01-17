@@ -32,12 +32,12 @@
 #                 print(f"{number} is not prime number")
 #
 #     elif menu == '4':
-#         numbers = input("Input First Second Number : ").split()
+#         numbers = input("Input First Second Number : ").split() # 숫자 하나만 입력하는 경우?
 #         n1 = int(numbers[0])
 #         n2 = int(numbers[1])
 #
 #         if n1 > n2:
-#             n1, n2 = n2, n1
+#             n1, n2 = n2, n1   # 입력부터 순서 바꾸는 것까지, 코드라인 줄이고 더 가독성 좋게.
 #
 #         for number in range(n1, n2 + 1):
 #             is_prime = True
@@ -46,13 +46,13 @@
 #                 pass
 #                 # 대신 continue를 사용할 수 있다.
 #             else:
-#                 for i in range(2, number):
-#                     if number % i == 0:
+#                 for i in range(2, number): # 위에 중복되는 코드 존재. 함수, 모듈화 필요
+#                     if number % i == 0:    # 너무 많이 돈다.
 #                         is_prime = False
 #                         break
 #
 #                 if is_prime: print(number, end=' ')
-#         print()
+#         print() # print 자체에 줄바꿈을 가지고 있다
 #
 #     elif menu == '5':
 #         print('Terminate Program. Goodnight.')
