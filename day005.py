@@ -138,3 +138,22 @@
 #
 # print(squares(7, 5, 2))
 # print(run_func(squares, 9, 10))
+
+# # 클로저의 이해
+# def outter_func(nout):
+#     def inner_func(nin):
+#         return nin * nin
+#     return inner_func(nout)
+# print(outter_func(5)) # 기존 이너 아우터 함수 방식
+
+# # closure
+# def outter_func(nout):
+#     def inner_func():
+#         return nout * nout
+#     return inner_func
+#
+# x = outter_func(9) # 이 x는 함수이기 떄문에,
+# print(x())         # x에 값을 주거나 / x(7) / 있으면 비우고 굴려야한다.
+# print(x)
+# print(type(x))
+
