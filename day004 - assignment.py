@@ -3,7 +3,7 @@
 
 # # 8.1
 # # 영어 - 프랑스어 사전을 만들어보자
-e2f = {"dog": "chien", "cat": "chat", "walrus": "morse"}
+# e2f = {"dog": "chien", "cat": "chat", "walrus": "morse"}
 # print(e2f)
 
 # # 8.2
