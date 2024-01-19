@@ -34,34 +34,44 @@
 
 # 앞으로 피보나치에서도 쓸 예정임. 반복으로도 할 수 있지만, side effect의 위험, 이전 값을 상당히 기억해야함
 
-# 예외처리 + 랜덤 모듈을 활용한
+# # 예외처리 + 랜덤 모듈을 활용한
+#
+# import random
+#
+# class OopsException(Exception):
+#     pass
+#
+# numbers = [random.randint(1,100) for i in range(5)]
+# print(numbers)
+#
+# try:
+#     pick = int(input(f"Input index (0 ~ {len(numbers)-1}) : "))
+#     # 4 이상의 값을 넣으면 IndexError: list index out of range
+#     # 가이드라인을 주니까 조금 더 낫긴한데, 여전히 예외처리가 필요하다.
+#     print(numbers[pick])
+#     # print(4/0) # zeroDivisionError를 보기 위한 코드
+#     raise OopsException("Oops!") # 여기서 에러를 발생시킴. 저 밑에 Exception의 err가 Oops!를 받는다.
+#
+# except IndexError as err :  # 근데 그냥 except만 써두면 에러가 아닌 것도 잡는다.
+#                     # 예시를 들면, 병원 갔더니 '아프시네요'라고 듣고 온 셈. 그래서 병명이 뭐에요...
+#                     # 그래서 IndexError라고 지정해서 처리해준다.
+#                     # as err : 시스템이 던지는 메세지를 변수 err 받아서 예외처리에 출력한 것.
+#     print(f"Wrong index number\nReason: {err}")
+#
+# except ValueError as err :
+#     print(f"Please input number only\n{err}")
+#
+# except ZeroDivisionError as err : # 위에 print(4/0) 떄문에 발생하는 에러. 직접 실행시키고
+#                                   # 시스템이 던지는 메세지를 가져오는 편
+#     print(f"Dennomenator cannot be 'Zero' : {err}")
+#
+# except OopsException as err:
+#     print(f"OOoooops OOOoopps {err}")
+#
+# except Exception as err : # 주의 : 얘는 가장 아래에 배치해야한다. 위로 올라가면 얘가 모든 에러를 먼저 잡아버린다.
+#                           # 어떤 언어들은 Exception이 가장 위로 가면 아예 실행을 못하게 에러를 던진다.
+#     print(f"Error occurs: {err}")
+#
+# else:
+#     print(f"Program is running")
 
-import random
-
-
-numbers = [random.randint(1,100) for i in range(5)]
-print(numbers)
-
-try:
-    pick = int(input(f"Input index (0 ~ {len(numbers)-1}) : "))
-    # 4 이상의 값을 넣으면 IndexError: list index out of range
-    # 가이드라인을 주니까 조금 더 낫긴한데, 여전히 예외처리가 필요하다.
-    print(numbers[pick])
-    # print(4/0) # zeroDivisionError를 보기 위한 코드
-
-except IndexError as err :  # 근데 그냥 except만 써두면 에러가 아닌 것도 잡는다.
-                    # 예시를 들면, 병원 갔더니 '아프시네요'라고 듣고 온 셈. 그래서 병명이 뭐에요...
-                    # 그래서 IndexError라고 지정해서 처리해준다.
-                    # as err : 시스템이 던지는 메세지를 변수 err 받아서 예외처리에 출력한 것.
-    print(f"Wrong index number\nReason: {err}")
-
-except ValueError as err :
-    print(f"Please input number only\n{err}")
-
-except ZeroDivisionError as err : # 위에 print(4/0) 떄문에 발생하는 에러. 직접 실행시키고
-                                  # 시스템이 던지는 메세지를 가져오는 편
-    print(f"Dennomenator cannot be 'Zero' : {err}")
-
-except Exception as err : # 주의 : 얘는 가장 아래에 배치해야한다. 위로 올라가면 얘가 모든 에러를 먼저 잡아버린다.
-                          # 어떤 언어들은 Exception이 가장 위로 가면 아예 실행을 못하게 에러를 던진다.
-    print(f"Error occurs: {err}")
