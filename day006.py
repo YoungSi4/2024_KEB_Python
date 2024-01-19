@@ -165,3 +165,29 @@
 # pikachu_1 = Pikachu("피가죽", '전기')
 # sq1 = Squirtle("고북이")
 # pikachu_1.electric_info()
+
+
+class Animal:
+    def say(self):
+        return "I'm a animal!"
+
+class Horse(Animal):
+    # def say(self):
+    #     return "난 말왕이야"
+    pass
+
+class Donkey(Animal):
+    def say(self):
+        return "당나기"
+    # pass
+
+class Mule(Donkey, Horse):
+    pass
+
+class Hinny(Horse, Donkey):
+    pass
+
+m1 = Mule()
+h1 = Hinny()
+print(m1.say())
+print(h1.say())
