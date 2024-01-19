@@ -127,15 +127,41 @@
 # print(squirtle.name)
 
 
-class Pokemon:
-    def __init__(self, name):
-        self.name = name
-        print(f'포켓몬 생성: {name}')
+# class Pokemon:
+#     def __init__(self, name):
+#         self.name = name
+#         print(f'포켓몬 생성: {name}')
+#
+#     def attack(self, target):
+#         print(f"{self.name}(이)가 {target.name}을(를) 공격했다!")
+#
+# pikachu = Pokemon("피카츄")
+# squirtle = Pokemon('꼬부기')
+# charizard = Pokemon("리자몽")
+# charizard.attack(squirtle)
 
-    def attack(self, target):
-        print(f"{self.name}(이)가 {target.name}을(를) 공격했다!")
-
-pikachu = Pokemon("피카츄")
-squirtle = Pokemon('꼬부기')
-charizard = Pokemon("리자몽")
-charizard.attack(squirtle)
+# 상속
+# class Pokemon():
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def attack(self, target):
+#         print(f'{self.name}(이)가 {target.name}을(를) 공격했다!')
+#
+# class Pikachu(Pokemon):
+#     def __init__(self, name, type):
+#         super().__init__(name) # 부모클래스를 호출 super(), 부모의 init을 사용ㅇ
+#         self.type = type
+#
+#     def attack(self, target):
+#         print(f'{self.name}(이)가 {target.name}에게 10만 볼트!')
+#
+#     def electric_info(self):
+#         print(f"{self.type}타입")
+#
+# class Squirtle(Pokemon):
+#     pass
+#
+# pikachu_1 = Pikachu("피가죽", '전기')
+# sq1 = Squirtle("고북이")
+# pikachu_1.electric_info()
