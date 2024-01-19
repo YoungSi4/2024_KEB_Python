@@ -7,6 +7,18 @@
 #     # return ['Harry', 'Ron', 'Hermione']
 #
 # print(good())
+#
+
+# 교수님 코드
+# def good() -> list:
+#     """
+#     9.1 연습문제
+#     :return: list
+#     """
+#     harry_portter = input().split() # 스플릿이 list에 담아주니까 편함
+#     return harry_portter
+#
+# print(good())
 
 # -------------------------------------------------------------------------------
 
@@ -34,7 +46,7 @@
 #         print(odd)
 #         break
 
-# 시도
+# 시도 한 번 더
 # odds = []
 # for numbers in range(10):
 #     if get_odds(numbers) != None:
@@ -48,6 +60,24 @@
 #             yield i
 #
 # print([i for i in get_odds()][2])
+
+# 교수님 코드
+# def get_odds(n) -> int:
+#     """
+#     1부터 n까지의 홀수를 발생시키는 제네레이터
+#     :param n: int
+#     :return: 홀수
+#     """
+#     for i in range(1, n+1, 2):
+#         yield i
+#
+# cnt = 0
+# odds = get_odds(9) # 제네레이터에 담아줘야 한다.
+# for odd in odds:
+#     cnt += 1
+#     if cnt == 3:
+#         print(f'Third Number is {odd}')
+#         break
 
 # -------------------------------------------------------------------------------
 
@@ -76,6 +106,45 @@
 #
 # do_nothing()
 
+# 교수님 방법 1. t라는 객체에 데코를 합체시킨 형태로 입힘
+# def test(f):
+#     """
+#     데코레이터. 함수 시작하면 start 출력, 끝나면 end 출력
+#     :param f: function
+#     :return: closure function
+#     """
+#     def test_in(*args, **kwargs): #가변 매개변수이기 때문에 없어도 동작, 100개가 와도 동작
+#         print('start')
+#         result = f(*args, **kwargs) # result에 담을거면 리턴 해줘야함.
+#         print('end')
+#         return result
+#     return test_in
+#
+# def greeting():
+#     print("안녕하세요")
+#
+# t = test(greeting)
+# t()
+
+# 교수님 방법 2. @로 데코하기
+# def test(f):
+#     """
+#     데코레이터. 함수 시작하면 start 출력, 끝나면 end 출력
+#     :param f: function
+#     :return: closure function
+#     """
+#     def test_in(*args, **kwargs): #가변 매개변수이기 때문에 없어도 동작, 100개가 와도 동작
+#         print('start')
+#         result = f(*args, **kwargs) # 내가 짠 코드처럼 해도 무관함.
+#         print('end')
+#         return result
+#     return test_in
+#
+# @test
+# def greeting():
+#     print("안녕하세요")
+#
+# greeting()
 
 # # 교재 예제
 # def document_it(func):
