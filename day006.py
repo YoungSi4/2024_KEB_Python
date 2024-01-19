@@ -167,27 +167,81 @@
 # pikachu_1.electric_info()
 
 
-class Animal:
-    def say(self):
-        return "I'm a animal!"
+# class Animal:
+#     def say(self):
+#         return "I'm a animal!"
+#
+# class Horse(Animal):
+#     # def say(self):
+#     #     return "난 말왕이야"
+#     pass
+#
+# class Donkey(Animal):
+#     def say(self):
+#         return "당나기"
+#     # pass
+#
+# class Mule(Donkey, Horse):
+#     pass
+#
+# class Hinny(Horse, Donkey):
+#     pass
+#
+# m1 = Mule()
+# h1 = Hinny()
+# print(m1.say())
+# print(h1.say())
 
-class Horse(Animal):
-    # def say(self):
-    #     return "난 말왕이야"
+# Mixin - 다중 상속을 이용해서 설명
+
+class FlyMixin:
+    def fly(self):
+        return f'{self.hidden_name}의 공중날기!'
+
+class SurfMixin:
+    def Surf(self):
+        return f"{self.hidden_name}의 파도타기!"
+
+class Pokemon:
+    def __init__(self, hidden_name):
+        self.name = hidden_name
+
+    def attack(self):
+        print("공격")
+
+    @property
+    def get_name(self):
+        print("getter 내부")
+        return self.hidden_name
+
+    @get_name.setter
+    def set_name(self, new_name):
+        print("setter 내부")
+        self.hidden_name = new_name
+
+    # name = property(get_name, set_name)
+
+class Charizard(Pokemon, FlyMixin):
     pass
 
-class Donkey(Animal):
-    def say(self):
-        return "당나기"
-    # pass
-
-class Mule(Donkey, Horse):
+class Gyarados(Pokemon, SurfMixin, FlyMixin):
     pass
 
-class Hinny(Horse, Donkey):
-    pass
+g1 = Gyarados("갸라도스")
+ch1 = Charizard("리자몽")
+# print(g1.Surf())
+# print(g1.fly())
+# print(ch1.fly())
+# ch1.attack()
+# Charizard.attack(ch1)
+# Charizard.attack() # 이건 클래스 이름이다. self 자리에는 '객체'가 들어간다.
+                   # 이런 형식을 쓰고 싶으면 객체를 줘야한다.
 
-m1 = Mule()
-h1 = Hinny()
-print(m1.say())
-print(h1.say())
+# print(g1.get_name())
+# g1.set_name("잉어킹")
+# print(g1.get_name())
+
+# property - 외부에 노출 안 시키고 접근?
+print(g1.name)
+g1.name = "잉어킹"
+print(g1.name)
