@@ -75,3 +75,67 @@
 # else:
 #     print(f"Program is running")
 
+# # 데코 추가 설명
+#
+# def desc(func):
+#     def wrapper():
+#         print("study")
+#         func()
+#     return wrapper
+#
+# # 방법 1.
+#
+# # def something():
+# #     print("do something")
+# #
+# # s = desc(something) # 할당할 객체 = 데코레이터(데코 입힐 함수())
+# # s() # 할당한 객체(함수)를 실행시킴
+#
+# # 방법 2.
+# # 혹은 위에 @데코레이터 를 붙이고 something()을 호출하면 된다.
+#
+# @desc
+# def something():
+#     print("do something")
+#
+# s = desc(something)
+# s()
+# print()
+# something()
+
+
+# Class !
+
+# 클래스 선언
+
+# class Pokemon: # 꼭 대문자로 하자. 상속이 아니라면 빈 괄호는 지우자.
+#     def __init__(self, name): # 이닛(생성자)에 이름을 던져줘서 만들 수도 있다.
+#                               # 이닛은 각 객체가 처음 생성될 때 딱 한 번 호출된다.
+#                               # self는 cpp의 this와 같다.
+#                               # 태어나는 건 한 번이다. 먹고 자는 건 할 때마다 호출하지만 탄생은 한 번.
+#         print(f"포켓몬스터 생성: {name}")
+#
+# pikachu = Pokemon("피카츄") # name을 str으로 준다.
+# squirtle = Pokemon("꼬부기")
+# pikachu.name = '피카츄'
+# pikachu.rival = squirtle
+# print(pikachu)
+# print(pikachu.name)
+# squirtle.name = "꼬부기"
+# print(pikachu.rival.name)
+# pikachu.rival.name = "꼬꼬부기"
+# print(squirtle.name)
+
+
+class Pokemon:
+    def __init__(self, name):
+        self.name = name
+        print(f'포켓몬 생성: {name}')
+
+    def attack(self, target):
+        print(f"{self.name}(이)가 {target.name}을(를) 공격했다!")
+
+pikachu = Pokemon("피카츄")
+squirtle = Pokemon('꼬부기')
+charizard = Pokemon("리자몽")
+charizard.attack(squirtle)
