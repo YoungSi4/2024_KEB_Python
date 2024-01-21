@@ -6,14 +6,13 @@ import sys
 # class
 # 최초에 생성할 때 디폴트 네임 + 해당 포켓몬의 타입을 적어줘야함
 class Attack_skill():
-    def __init__(self, name, power, accuracy, type):
+    def __init__(self, name, power, accuracy, _type_):
         self.skill_name = name
         self.power = power
         self.accuracy = accuracy
-        self.type = type
+        self._type_ = _type_
 
 class tackle(Attack_skill):
-
     def __init__(self):
         super().__init__("몸통박치기", 40, 100, "노말")
 
@@ -96,10 +95,10 @@ def type_chart(my_type, target_type, skill_type) -> float: # 타입상성, 자�
     return type_effect * type_adv
 
 class Pokemon():
-    def __init__(self, name, type, hp, atk, defence, skills):
+    def __init__(self, name, _type_, hp, atk, defence, skills):
     # text
         self.name = name
-        self.type = type
+        self._type_ = _type_
         self.skill = skills
 
     # basic numeric status
@@ -110,32 +109,31 @@ class Pokemon():
 
     # act
     def attack(self, target, skill):
-        print(f'{self}(이)가 {target.name}에게 {skill.name}!')
         # (데미지 = (위력 × 공격 × (레벨 × [[급소]] × 2 ÷ 5 + 2 ) ÷ 방어 ÷ 50 + 2 ) × [[자속 보정]] × 타입상성1)
-        damage = int((skill.power * self.atk / target.defence / 50 + 2 )* type_chart(self.type, target.type, skill.type))
+        damage = int((skill.power * self.atk * (10 * 2 / 5 + 2) / target.defence / 50 + 2 )* type_chart(self._type_, target._type_, skill._type_))
         target.current_hp -= damage
 
 
 # # 포켓몬 리스트
 class Piplup(Pokemon): # 물
     def __init__(self):
-        super().__init__("펭도리", "물", 120, 170, 140, [tackle, None, None, None])
+        super().__init__("펭도리", "물", 53, 51, 56, [tackle(), None, None, None])
 
 class Bullbasuar(Pokemon): # 풀
     def __init__(self):
-        super().__init__("이상해씨", "풀", 90, 190, 70, [tackle, None, None, None])
+        super().__init__("이상해씨", "풀", 45, 65, 49, [tackle(), None, None, None])
 
 class Torchic(Pokemon): # 불
     def __init__(self):
-        super().__init__("아차모", "불", 75, 200, 80, [tackle, None, None, None])
+        super().__init__("아차모", "불", 45, 60, 50, [tackle(), None, None, None])
 
 class Alakazam(Pokemon):    # 빌런 보스 # 에스퍼
     def __init__(self):
-        super().__init__("후딘", "에스퍼", 55, 175, 65, [tackle, None, None, None])
+        super().__init__("후딘", "에스퍼", 55, 75, 30, [tackle(), None, None, None])
 
 class Gyaradose(Pokemon):   # 체육관 관장 # 물
     def __init__(self):
-        super().__init__("갸라도스", "물", 95, 135, 85, [tackle, None, None, None])
+        super().__init__("갸라도스", "물", 95, 60, 30, [tackle(), None, None, None])
 
 def pokemon_center():
     pass
@@ -151,15 +149,19 @@ def display_skill(pokemon):
         str += f"{i + 1}) [{pokemon.skill[i].skill_name}] "
     print(str, end=' ')
 
+def display_status(pokemon):
+    print(f"{pokemon.name}: {pokemon.current_hp}/{pokemon.max_hp}", end=' ')
+
 def battle(person1, person2):
     isBattle = True
-    input(f"{person2}(이)가 승부를 걸어왔다!")
+    input(f"{person2.name}(이)가 승부를 걸어왔다!")
     input(f"{person2.name}: 가랏! {person2.partner.name}!")
     input(f"당신은 {person1.partner.name}(을)를 내보냈다!")
 
     while isBattle == True:
         select = 0
-        select = int(input(f"무엇을 할까? 1) 싸운다 2) 도망간다"))
+        display_status(person1.partner)
+        select = int(input(f"무엇을 할까? 1) 싸운다 2) 도망간다: "))
 
         if select == 1: # 1) 싸운다
             #select_skill = 0
@@ -171,12 +173,22 @@ def battle(person1, person2):
             else:
                 selected_skill = skill_select(person1.partner, select_skill) # 기술 선택만 수행
                 person1.partner.attack(person2.partner, selected_skill)
-                if person2.partner.currnet_hp <= 0:
+                print(f'{person1.partner.name}의 {selected_skill.skill_name}!')
+                display_status(person2.partner)
+                print()
+
+                if person2.partner.current_hp <= 0:
                     input(f"{person2.partner.name}(이)가 쓰려졌다!")
                     input(f"당신은 전투에서 승리했다!")
                     break
                 # 우리 포켓몬 공격 턴 종료 시점(적 공격 시작 시점)
-                person2.partner.attack(person1.partner, random.randint(0, 3))
+                selected_skill = None
+                while selected_skill is None:
+                    selected_skill = person2.partner.skill[random.randint(0, 3)]
+                person2.partner.attack(person1.partner, selected_skill)
+                print(f'{person2.partner.name}의 {selected_skill.skill_name}!')
+                display_status(person1.partner)
+                print()
                 if person1.partner.current_hp <= 0:
                     input(f"{person1.partner.name}(이)가 쓰러졌다!")
                     input("당신은 전투에서 패배했다!")
@@ -187,8 +199,6 @@ def battle(person1, person2):
         if select == 2: # 2) 도망친다
             input("승부 중에 등을 보일 순 없어!")
             continue
-
-
 
 # 객체 생성
 gyaradose_mac = Gyaradose()
@@ -250,22 +260,24 @@ while True:
             break
         if Yes_or_No == 0:
             continue
-    if Start_select == 2:
+    elif Start_select == 2:
         Yes_or_No = int(input("'팽도리' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : "))
-        if Yes_or_No == 1:
-            hero.partner = Bullbasuar()
-            rival.partner = Torchic()
-            break
-        if Yes_or_No == 0:
-            continue
-    if Start_select == 3:
-        Yes_or_No = int(input("'이상해씨' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : "))
         if Yes_or_No == 1:
             hero.partner = Piplup()
             rival.partner = Bullbasuar()
             break
         if Yes_or_No == 0:
             continue
+    elif Start_select == 3:
+        Yes_or_No = int(input("'이상해씨' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : "))
+        if Yes_or_No == 1:
+            hero.partner = Bullbasuar()
+            rival.partner = Torchic()
+            break
+        if Yes_or_No == 0:
+            continue
+    else:
+        continue
 
 # 선택 이후
 input(f"{rival.name}: 넌 {hero.partner.name}을 골랐구나!")
@@ -273,4 +285,3 @@ input(f"{rival.name}: 그럼 난 {rival.partner.name}으로 해야지!")
 input(f"{rival.name}: 이제 포켓몬도 생겼으니 나랑 승부다!")
 battle(hero, rival)
 input("전투종료 이후진행") # 임시
-
