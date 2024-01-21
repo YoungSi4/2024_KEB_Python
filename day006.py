@@ -194,41 +194,41 @@
 
 # Mixin - 다중 상속을 이용해서 설명
 
-class FlyMixin:
-    def fly(self):
-        return f'{self.hidden_name}의 공중날기!'
-
-class SurfMixin:
-    def Surf(self):
-        return f"{self.hidden_name}의 파도타기!"
-
-class Pokemon:
-    def __init__(self, hidden_name):
-        self.name = hidden_name
-
-    def attack(self):
-        print("공격")
-
-    @property
-    def get_name(self):
-        print("getter 내부")
-        return self.hidden_name
-
-    @get_name.setter
-    def set_name(self, new_name):
-        print("setter 내부")
-        self.hidden_name = new_name
-
-    # name = property(get_name, set_name)
-
-class Charizard(Pokemon, FlyMixin):
-    pass
-
-class Gyarados(Pokemon, SurfMixin, FlyMixin):
-    pass
-
-g1 = Gyarados("갸라도스")
-ch1 = Charizard("리자몽")
+# class FlyMixin:
+#     def fly(self):
+#         return f'{self.__name}의 공중날기!'
+#
+# class SurfMixin:
+#     def Surf(self):
+#         return f"{self.__name}의 파도타기!" # 이건 Mixin 설명을 위해 사용했음
+#
+# class Pokemon:
+#     def __init__(self, hidden_name):
+#         self.__name = hidden_name # 진짜 이름
+#
+#     def attack(self):
+#         print("공격")
+#
+#     @property
+#     def get_name(self):
+#         print("getter 내부")
+#         return self.hidden_name
+#
+#     @get_name.setter
+#     def set_name(self, new_name):
+#         print("setter 내부")
+#         self.hidden_name = new_name
+#
+#     # name = property(get_name, set_name)
+#
+# class Charizard(Pokemon, FlyMixin):
+#     pass
+#
+# class Gyarados(Pokemon, SurfMixin, FlyMixin):
+#     pass
+#
+# g1 = Gyarados("갸라도스")
+# ch1 = Charizard("리자몽")
 # print(g1.Surf())
 # print(g1.fly())
 # print(ch1.fly())
@@ -241,7 +241,43 @@ ch1 = Charizard("리자몽")
 # g1.set_name("잉어킹")
 # print(g1.get_name())
 
-# property - 외부에 노출 안 시키고 접근?
-print(g1.name)
-g1.name = "잉어킹"
-print(g1.name)
+# property
+# print(g1.name)
+# g1.hidden_name = "잉어킹"
+# print(g1.name)
+# print(g1.hidden_name)
+
+# property +++
+# print(g1.name)
+# print(g1.hidden_name)
+# # print(g1.__name) # 직접 접근 불가. 에러.
+# print(g1._Pokemon__name)
+
+
+# 과제 (주말과제 !)
+#  어... 교재 연습문제는 당연히 해볼 것
+#
+# 포켓몬스터 게임을 만들어옵시다
+# 1. 기획을 해야한다.
+#   클래스 설계 : 필드를 만들고 상속관계를 설계해야 한다.
+#   어떤 기능이 있어야 하는지
+#   텍스트 기반 게임
+#   게임을 시작하면 스타팅 포켓몬 정하고, 야생의 포켓몬 등장하고, 라이벌 대결하고
+#   스타팅 포켓몬 고름 > 객체 생성해야함
+#   상대 포켓몬도 여러 종류 만들어서 랜덤으로 등장
+#   상대 포켓몬 등장 > 무엇을 할까? 1) 공격, 2) 도망, 3) 게임종료
+#   리스트에 attack_name, attack_damage 2차원으로?
+#   도망을 간다면? 레벨을 고려해서. 확률적으로
+#
+#   생각드는대로 만들어보자.
+#   여태 배운 기술을 총동원해서 만들어보자.
+#   절대 ! 같은 결과물이 나올 수 없다 !
+#   스스로 배운 기술을 써먹기 위해서 열심히 해볼 것.
+
+#   분명 다양한 버그가 생기고 어려울 것임.
+#   한 세월 붙잡고 만들어야 할 것임 ㅋㅋㅋ
+#   굳이 모든 기능을 억지로 쓸 필요는 없다.
+#   자연스럽게 필요한 기능을 활용할 것.
+
+# Mixin 부터 이해를 못해서 다시 읽어보고
+# 접근, 프로퍼티, 게터 세터, 유사 private 다 완전히 이해할 것
