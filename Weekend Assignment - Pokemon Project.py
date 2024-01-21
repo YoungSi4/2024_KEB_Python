@@ -10,20 +10,21 @@ class Attack_skill():
         self.type = type
 
 class tackle(Attack_skill):
+
     def __init__(self):
-        super.__init__("몸통박치기", 40, 100, "노말")
+        super().__init__("몸통박치기", 40, 100, "노말")
 
 class water_gun(Attack_skill):
     def __init__(self):
-        super.__init__("물대포", 40, 100, "물")
+        super().__init__("물대포", 40, 100, "물")
 
 class small_fire(Attack_skill):
     def __init__(self):
-        super.__init__("불꽃셰레", 40, 100, "불")
+        super().__init__("불꽃셰레", 40, 100, "불")
 
 class whip_sweep(Attack_skill):
     def __init__(self):
-        super.__init__("덩쿨채찍", 40, 100, "풀")
+        super().__init__("덩쿨채찍", 40, 100, "풀")
 
 
 
@@ -34,19 +35,19 @@ class Human():
 
 class Hero(Human):
     def __init__(self):
-        super.__init__("이름", "아직없음")
+        super().__init__("이름", "아직없음")
 
 class Rival(Human):
     def __init__(self):
-        super.__init__("용식", "아직없음")
+        super().__init__("용식", "아직없음")
 
 class Gym_Master(Human):
     def __init__(self):
-        super.__init__("맥실러", "아직없음")
+        super().__init__("맥실러", "아직없음")
 
 class Villain(Human):
     def __init__(self):
-        super.__init__("연수", "아직없음")
+        super().__init__("연수", "아직없음")
 
 class Pokemon():
     def __init__(self, name, type, hp, atk, defence, skills):
@@ -70,23 +71,23 @@ class Pokemon():
 # # 포켓몬 리스트
 class Piplup(Pokemon): # 물
     def __init__(self):
-        super.__init__("펭도리", "물", 120, 170, 140, [tackle, None, None, None])
+        super().__init__("펭도리", "물", 120, 170, 140, [tackle, None, None, None])
 
 class Bullbasuar(Pokemon): # 풀
     def __init__(self):
-        super.__init__("이상해씨", "풀", 90, 190, 70, [tackle, None, None, None])
+        super().__init__("이상해씨", "풀", 90, 190, 70, [tackle, None, None, None])
 
 class Torchic(Pokemon): # 불
     def __init__(self):
-        super.__init__("아차모", "불", 75, 200, 80, [tackle, None, None, None])
+        super().__init__("아차모", "불", 75, 200, 80, [tackle, None, None, None])
 
 class Alakazam(Pokemon):    # 빌런 보스 # 에스퍼
     def __init__(self):
-        super.__init__("후딘", "에스퍼", 55, 175, 65, [tackle, None, None, None])
+        super().__init__("후딘", "에스퍼", 55, 175, 65, [tackle, None, None, None])
 
 class Gyaradose(Pokemon):   # 체육관 관장 # 물
     def __init__(self):
-        super.__init__("갸라도스", "물", 95, 135, 85, [tackle, None, None, None])
+        super().__init__("갸라도스", "물", 95, 135, 85, [tackle, None, None, None])
 
 def pokemon_center():
     pass
@@ -147,15 +148,15 @@ while True:
     Yes_or_No = None
     Start_select = int(input("포켓몬을 골라주세요 1) 아차모 2) 팽도리 3) 이상해씨 : "))
     if Start_select == 1:
-        Yes_or_No = input("'아차모' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : ")
+        Yes_or_No = int(input("'아차모' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : "))
         if Yes_or_No == 1:
             hero.partner = Torchic()
-            rival.partner = Bullbasuar()
+            rival.partner = Piplup()
             break
         if Yes_or_No == 0:
             continue
     if Start_select == 2:
-        Yes_or_No = input("'팽도리' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : ")
+        Yes_or_No = int(input("'팽도리' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : "))
         if Yes_or_No == 1:
             hero.partner = Bullbasuar()
             rival.partner = Torchic()
@@ -163,7 +164,7 @@ while True:
         if Yes_or_No == 0:
             continue
     if Start_select == 3:
-        Yes_or_No = input("'이상해씨' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : ")
+        Yes_or_No = int(input("'이상해씨' 이 아이로 하시겠습니까? 1) 네 2) 아니오 : "))
         if Yes_or_No == 1:
             hero.partner = Piplup()
             rival.partner = Bullbasuar()
