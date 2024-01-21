@@ -135,8 +135,9 @@ class Gyaradose(Pokemon):   # 체육관 관장 # 물
     def __init__(self):
         super().__init__("갸라도스", "물", 95, 60, 30, [tackle(), None, None, None])
 
-def pokemon_center():
-    pass
+def pokemon_center(pokemon):
+    pokemon.current_hp = pokemon.max_hp
+
 def skill_select(pokemon, selected_num):
     return pokemon.skill[selected_num - 1]
 
@@ -284,4 +285,30 @@ input(f"{rival.name}: 넌 {hero.partner.name}을 골랐구나!")
 input(f"{rival.name}: 그럼 난 {rival.partner.name}으로 해야지!")
 input(f"{rival.name}: 이제 포켓몬도 생겼으니 나랑 승부다!")
 battle(hero, rival)
-input("전투종료 이후진행") # 임시
+input(f"{rival.name}: 크윽 지다니...")
+input(f"{rival.name}: 너 정말 강하구나!")
+input(f"{rival.name}(은)는 조금 분해보이는 모습으로 떠났다.")
+pokemon_center(hero.partner)
+input(f"포켓몬이 전부 회복됐습니다.")
+input(f"당신의 {hero.partner.name}(은)는 새로운 기술을 배웠다!")
+if isinstance(hero.partner, Piplup):
+    hero.partner.skill[1] = bubble_beam()
+elif isinstance(hero.partner, Bullbasuar):
+    hero.partner.skill[1] = masiclal_leaves()
+else:
+    hero.partner.skill[1] = flame_wheel()
+input(f"이제 {hero.partner.name}(은)는 {hero.partner.skill[1].skill_name}(을)를 사용할 수 있게 됐다!")
+input("당신의 여정은 계속된다.")
+input("다음은 포켓몬 체육관이다!")
+input(f"{gymmm.name}: 어서와라 도전자! 있는 힘껏 상대해주마!")
+gymmm.partner = gyaradose_mac
+battle(hero,gymmm)
+input(f"{gymmm.name}: 크으윽!!! 정말 있는 힘껏 들이받아버리다니!!!")
+input(f"{gymmm.name}: 정말 멋진 승부였다!")
+input(f"{gymmm.name}: 이건 내가 자네에게 주는 강함의 증거야")
+input(f"당신은 체육관뱃지를 획득했다!")
+input(f"{gymmm.name}: 자 이제 다음으로 가거라!")
+input(f"당신은 체육관을 빠져나왔다.")
+input("이제 막 첫 뱃지를 얻었을 뿐, 아직 남은 여정은 길다!")
+input(f"당신의 모험은 이제 막 시작됐을 뿐이다!")
+input(" - 체험판 종료 - ")
