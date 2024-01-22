@@ -53,43 +53,45 @@
 # print(p1.fly_behavior.fly())
 
 # import mymath
-# Prime number with funcrtion
+# from mymath import *
 import mymath as mm
 
-from mymath import * # 모듈 이름을 앞에 안 붙여도 되도록 해주는 형식
-while True:
-    menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fehrenheit 3) Prime number 4) Prime number range 5) Quit Program: ")
+print(globals())
 
-    if menu == '1':
-        fahrenheit = float(input('Input Fahenheit : '))
-        print(f'화씨온도: {fahrenheit}F, 섭씨: {(mm.fahrenheit_to_celsius(fahrenheit)):.4f}C')
+if __name__ == "__main__":
+    while True:
+        menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fehrenheit 3) Prime number 4) Prime number range 5) Quit Program: ")
 
-    elif menu == '2':
-        celsius = float(input('Input Celsius: '))
-        print(f'Celsius: {celsius}C, Fahrenheit: {(mm.celsius_to_fahrenheit(celsius)):.4f}F')
+        if menu == '1':
+            fahrenheit = float(input('Input Fahenheit : '))
+            print(f'화씨온도: {fahrenheit}F, 섭씨: {(mm.fahrenheit_to_celsius(fahrenheit)):.4f}C')
 
-    elif menu == '3':
-        number = int(input("Input Number : "))
-        if mm.isprime(number):
-            print(f"{number} is prime number")
-        else:
-            print(f"{number} is not prime number")
+        elif menu == '2':
+            celsius = float(input('Input Celsius: '))
+            print(f'Celsius: {celsius}C, Fahrenheit: {(mm.celsius_to_fahrenheit(celsius)):.4f}F')
 
-    elif menu == '4':
-        numbers = input("Input First Second Number : ").split() # 숫자 하나만 입력하는 경우?
-        n1 = int(numbers[0])
-        n2 = int(numbers[1])
-
-        if n1 > n2:
-            n1, n2 = n2, n1   # 입력부터 순서 바꾸는 것까지, 코드라인 줄이고 더 가독성 좋게.
-
-        for number in range(n1, n2 + 1):
+        elif menu == '3':
+            number = int(input("Input Number : "))
             if mm.isprime(number):
-                print(number, end=' ')
-        print() # print 자체에 줄바꿈을 가지고 있다
+                print(f"{number} is prime number")
+            else:
+                print(f"{number} is not prime number")
 
-    elif menu == '5':
-        print('Terminate Program. Goodnight.')
-        break
-    else:
-        pass
+        elif menu == '4':
+            numbers = input("Input First Second Number : ").split() # 숫자 하나만 입력하는 경우?
+            n1 = int(numbers[0])
+            n2 = int(numbers[1])
+
+            if n1 > n2:
+                n1, n2 = n2, n1   # 입력부터 순서 바꾸는 것까지, 코드라인 줄이고 더 가독성 좋게.
+
+            for number in range(n1, n2 + 1):
+                if mm.isprime(number):
+                    print(number, end=' ')
+            print() # print 자체에 줄바꿈을 가지고 있다
+
+        elif menu == '5':
+            print('Terminate Program. Goodnight.')
+            break
+        else:
+            pass
