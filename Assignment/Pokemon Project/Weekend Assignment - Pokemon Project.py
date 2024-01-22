@@ -2,41 +2,42 @@
 
 import random
 import sys
+import PokemonSkill
 
 # class
 # 최초에 생성할 때 디폴트 네임 + 해당 포켓몬의 타입을 적어줘야함
-class Attack_skill():
-    def __init__(self, name, power, accuracy, _type_):
-        self.skill_name = name
-        self.power = power
-        self.accuracy = accuracy
-        self._type_ = _type_
+# class PokemonSkill.Attack_skill():
+#     def __init__(self, name, power, accuracy, _type_):
+#         self.skill_name = name
+#         self.power = power
+#         self.accuracy = accuracy
+#         self._type_ = _type_
 
-class tackle(Attack_skill):
+class tackle(PokemonSkill.Attack_skill):
     def __init__(self):
         super().__init__("몸통박치기", 40, 100, "노말")
 
-class water_gun(Attack_skill):
+class water_gun(PokemonSkill.Attack_skill):
     def __init__(self):
         super().__init__("물대포", 40, 100, "물")
 
-class small_fire(Attack_skill):
+class small_fire(PokemonSkill.Attack_skill):
     def __init__(self):
         super().__init__("불꽃셰레", 40, 100, "불")
 
-class whip_sweep(Attack_skill):
+class whip_sweep(PokemonSkill.Attack_skill):
     def __init__(self):
         super().__init__("덩쿨채찍", 40, 100, "풀")
 
-class bubble_beam(Attack_skill):
+class bubble_beam(PokemonSkill.Attack_skill):
     def __init__(self):
         super().__init__("거품광선", 65, 100, "물")
 
-class flame_wheel(Attack_skill):
+class flame_wheel(PokemonSkill.Attack_skill):
     def __init__(self):
         super().__init__("화염자동차", 60, 100, "불")
 
-class masiclal_leaves(Attack_skill):
+class masiclal_leaves(PokemonSkill.Attack_skill):
     def __init__(self):
         super().__init__("매지컬리프", 60, 100, "풀")
 

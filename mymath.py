@@ -1,5 +1,3 @@
-print(globals())
-
 if __name__ == "__main__":
     print("mymath is a main file")
 else:
