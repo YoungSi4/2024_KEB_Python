@@ -43,11 +43,11 @@ class FlyWithWings(Fly):
         return f"날개로 하늘을 날아갑니다"
 
 class Pikachu:
-    def __init__(self, name, hp, fly):
+    def __init__(self, name, hp):
         self.name = name
         self.hp = hp
-        self.fly_behavior = fly
+        self.fly_behavior = Nofly() # composition
 
-no_wings = Nofly()
-p1 = Pikachu("피카츄", 100, no_wings)
-print(p1.fly_behavior.fly()) # 이게 aggregation. has-a
+
+p1 = Pikachu("피카츄", 100)
+print(p1.fly_behavior.fly())
