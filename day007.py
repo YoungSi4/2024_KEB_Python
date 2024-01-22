@@ -54,18 +54,17 @@
 
 # Prime number with funcrtion
 
-import mymath # 나 왜 없다고 떠요?
-
+import mymath
 while True:
     menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fehrenheit 3) Prime number 4) Prime number range 5) Quit Program: ")
 
     if menu == '1':
         fahrenheit = float(input('Input Fahenheit : '))
-        print(f'화씨온도: {fahrenheit}F, 섭씨: {((fahrenheit - 32) * 5 / 9):.4f}C')
+        print(f'화씨온도: {fahrenheit}F, 섭씨: {(mymath.fahrenheit_to_celsius(fahrenheit)):.4f}C')
 
     elif menu == '2':
         celsius = float(input('Input Celsius: '))
-        print(f'Celsius: {celsius}C, Fahrenheit: {((celsius * 9/5) + 32):.4f}F')
+        print(f'Celsius: {celsius}C, Fahrenheit: {(mymath.celsius_to_fahrenheit(celsius)):.4f}F')
 
     elif menu == '3':
         number = int(input("Input Number : "))

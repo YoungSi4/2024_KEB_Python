@@ -15,3 +15,10 @@ def isprime(n) -> bool: # 리턴값 명시. 없어도 되는데 있으면 더 �
                 return False
             i += 1
         return True # True를 반환하고 함수를 즉시 종료한다.
+
+def fahrenheit_to_celsius(fahrenheit) -> float:
+    return (fahrenheit - 32) * 5 / 9
+
+
+def celsius_to_fahrenheit(celsius) -> float:
+    return (celsius * 9/5) + 32
